@@ -34,7 +34,7 @@ namespace MyLib.MyCsvHelper
 		/// </summary>
 		public MyCsvReader()
 		{
-			CsvConf = GetInitCsvConf();
+			CsvConf = CsvReaderWrap.GetInitCsvConf();
 		}
 
 		/// <summary>
@@ -44,23 +44,6 @@ namespace MyLib.MyCsvHelper
 		public MyCsvReader(CsvConfiguration fileReadConf)
 		{
 			CsvConf = fileReadConf;
-		}
-
-		/// <summary>
-		/// File読込設定情報 初期値取得
-		/// </summary>
-		/// <returns></returns>
-		public static CsvConfiguration GetInitCsvConf()
-		{
-			var conf = new CsvConfiguration();
-			// 空白行を無視
-			conf.SkipEmptyRecords = true;
-			// コメント行(#)を無視
-			conf.AllowComments = true;
-			// 項目の前後にある空白を削除
-			conf.TrimFields = true;
-
-			return conf;
 		}
 
 		/// <summary>
